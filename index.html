@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="tabs">
+      <button class="tab-link active" id="tabSearch">Search</button>
+      <button class="tab-link" id="tabSaved">Saved (0)</button>
+    </div>
+
+    <div id="searchSection" class="tab-content">
+      <div class="search-box">
+        <input type="text" id="product" placeholder="Paste link or product name..." />
+        <button id="searchBtn">Compare Prices</button>
+      </div>
+      <div id="results"></div>
+    </div>
+
+    <div id="savedSection" class="tab-content" style="display:none;">
+      <div id="savedList"></div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
