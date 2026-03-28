@@ -74,3 +74,20 @@ button {
     border-radius: 5px;
     font-size: 12px;
 }
+.buy-link:hover {
+    background-color: #2980b9 !important;
+    transform: scale(1.02);
+    transition: 0.2s;
+}
+
+.save-btn:hover {
+    background-color: #ddd !important;
+}
+
+.product-card {
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
