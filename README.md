@@ -43,7 +43,7 @@ BachatKar is a web-based price comparison tool that helps users find the best de
 
 ## 🔗 Live Demo
 
-👉 https://your-app.vercel.app
+👉 https://bachat-kar.vercel.app/
 
 ---
 
@@ -51,4 +51,4 @@ BachatKar is a web-based price comparison tool that helps users find the best de
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/bachatkar.git
+git clone https://github.com/Abhishek-ko/BachatKar.git
