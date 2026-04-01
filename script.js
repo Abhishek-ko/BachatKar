@@ -29,15 +29,18 @@ searchBtn.onclick = async function() {
 
     /**
      * API FETCHING:
-     * proxyUrl: Bypasses browser security (CORS) that blocks direct API calls.
-     * targetUrl: The actual request sent to SerpApi with Indian location settings.
+     * We use a public CORS-friendly proxy so the browser can reach SerpApi.
+     * If this proxy is down, the error message will explain the issue.
      */
-    const proxyUrl = "https://cors-anywhere.herokuapp.com/"; 
+    const proxyUrl = "https://api.allorigins.win/raw?url=";
     const targetUrl = `https://serpapi.com/search.json?engine=google_shopping&q=${encodeURIComponent(query)}&location=India&hl=en&gl=in&api_key=${apiKey}`;
 
     try {
         // We 'await' the fetch so the code waits for the internet to respond
-        const response = await fetch(proxyUrl + targetUrl);
+        const response = await fetch(proxyUrl + encodeURIComponent(targetUrl));
+        if (!response.ok) {
+            throw new Error(`Network response was not ok: ${response.status}`);
+        }
         const data = await response.json(); // Convert the raw data into a readable JS Object
 
         // If the API found products, send the top 5 to the 'displayResults' function
@@ -48,7 +51,8 @@ searchBtn.onclick = async function() {
         }
     } catch (error) {
         // If the internet fails or the proxy isn't activated
-        resultsList.innerHTML = `<p style="color:red;">Error! Make sure you clicked 'Request access' at the CORS Anywhere demo site.</p>`;
+        resultsList.innerHTML = `<p style="color:red;">Error loading results. Check your internet connection or try again later.</p>`;
+        console.error(error);
     }
 };
 
